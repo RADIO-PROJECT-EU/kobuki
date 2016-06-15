@@ -139,7 +139,7 @@ void AutoDockingROS::syncCb(const nav_msgs::OdometryConstPtr& odom,
 
   //action server execution
   if( as_.isActive() ) {
-    if ( dock_.getState() == RobotDockingState::DONE ) {
+    if ( dock_.getState() == RobotDockingState::DONE || dock_.getState() == RobotDockingState::BUMPED ) {
       result_.text = "Arrived on docking station successfully.";
       as_.setSucceeded(result_);
       ROS_INFO_STREAM( "[" << name_ << "]: Arrived on docking station successfully.");
