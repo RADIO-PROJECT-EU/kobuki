@@ -80,8 +80,8 @@ void AutoDockingROS::goalCb()
     as_.setAborted( result_, result_.text );
     ROS_INFO_STREAM("[" << name_ << "] New goal received but rejected.");
   } else {
-    goal_ = *(as_.acceptNewGoal());
     dock_.enable();
+    goal_ = *(as_.acceptNewGoal());
     ROS_INFO_STREAM("[" << name_ << "] New goal received and accepted.");
   }
 }
@@ -115,7 +115,7 @@ void AutoDockingROS::syncCb(const nav_msgs::OdometryConstPtr& odom,
     double r, p, y;
     rot.GetRPY(r, p, y);
 
-    ecl::Pose2D<double> pose;
+    ecl::LegacyPose2D<double> pose;
     pose.x(odom->pose.pose.position.x);
     pose.y(odom->pose.pose.position.y);
     pose.heading(y);
