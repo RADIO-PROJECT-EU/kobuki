@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(kobuki_description)
-find_package(catkin REQUIRED COMPONENTS urdf xacro)
+find_package(catkin REQUIRED COMPONENTS urdf xacro kobuki_gazebo_plugins)
 
 catkin_package(
-   CATKIN_DEPENDS urdf xacro
+   CATKIN_DEPENDS urdf xacro kobuki_gazebo_plugins
 )
 
 install(DIRECTORY launch
